@@ -71,6 +71,6 @@ const HomePage = ({ classes }) =>
   )
 
 HomePage.propTypes = {
-  classes: PropTypes.element.isRequired,
+  classes: PropTypes.object.isRequired,
 }
 export default injectSheet(styles)(HomePage)

@@ -1,5 +1,6 @@
 import compression from 'compression'
 import express from 'express'
+import 'babel-polyfill'
 import { Server } from 'http'
 import socketIO from 'socket.io'
 

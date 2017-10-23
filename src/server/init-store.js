@@ -6,9 +6,7 @@ import helloReducer from '../shared/reducer/hello'
 
 const initStore = (plainPartialState) => {
   const preloadedState = plainPartialState ? {} : undefined
-
   if (plainPartialState && plainPartialState.hello) {
-    // flow-disable-next-line
     preloadedState.hello = helloReducer(undefined, {})
       .merge(Immutable.fromJS(plainPartialState.hello))
   }

@@ -3,6 +3,7 @@ import {
   helloPage,
   helloAsyncPage,
   helloEndpoint,
+  getStories,
 } from './controller'
 
 import {
@@ -10,6 +11,7 @@ import {
   HELLO_PAGE_ROUTE,
   HELLO_ASYNC_PAGE_ROUTE,
   helloEndpointRoute,
+  storiesRoute,
 } from '../shared/routes'
 
 import renderApp from './render-app'
@@ -29,6 +31,12 @@ export default (app) => {
 
   app.get(helloEndpointRoute(), (req, res) => {
     res.json(helloEndpoint(req.params.num))
+  })
+
+  app.get(storiesRoute, (req, res) => {
+    getStories(req.params.category)
+      .then(stories => res.send(stories))
+      .catch(() => res.send([]))
   })
 
   app.get('/500', () => {
